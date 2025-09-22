@@ -1,0 +1,89 @@
+.card {
+    border: none;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .color-ch {
+    background-color: #3e8b87;
+  }
+
+  .border-left-primary {
+    border-left: 0.25rem solid #3e8b87 !important;
+  }
+  
+  .border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+  }
+  
+  .border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+  }
+  
+  .border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+  }
+  
+  .border-left-danger {
+    border-left: 0.25rem solid #e74a3b !important;
+  }
+  
+  .course-item {
+    transition: all 0.3s ease;
+  }
+  
+  .course-item:hover {
+    background-color: #f8f9fc;
+  }
+  
+  .course-item:last-child {
+    border-bottom: none !important;
+  }
+  
+  .btn-primary {
+    background-color: #4e73df;
+    border-color: #4e73df;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3758a2;
+    border-color: #3758a2;
+  }
+
+  /* Iconos de Material Design */
+  .material-icons {
+    vertical-align: middle;
+    font-size: 24px;
+  }
+  
+  /* Progreso dentro de las tarjetas */
+  .progress {
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  .progress-bar {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  /* Personalización del encabezado */
+  .card-header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Estilos de tarjetas informativas */
+  .card-body {
+    text-align: center;
+  }
+
+  .card-body h5 {
+    font-weight: bold;
+  }
+
+  .card-body p {
+    font-size: 16px;
+  }
+  

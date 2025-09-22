@@ -1,0 +1,141 @@
+<div class="container mt-4">
+    <!-- Header con información del administrador y fecha -->
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card shadow-lg">
+              <div class="card-header text-center text-white color-ch">
+                  <h3 class="mb-0">CAMPUS IADATA (SICAC)</h3>
+                  <small>Sistema de Capacitaciones y Comerciales </small>
+              </div>
+              <div class="card-body">
+                  <p class="text-center">
+                      Bienvenido al <strong>Nuevo Campus IADATA PERÚ</strong>.
+                  </p>
+                  <p class="text-center">
+                    Potencia tus habilidades en Programación, Inteligencia Artificial y Ciencia de Datos. ¡Transforma tu futuro digital!
+                  </p>
+                  <hr>
+                  <div class="text-center">
+                      <span class="font-weight-bold text-secondary">Accesos rápidos</span>
+                      <i class="material-icons text-primary">keyboard_tab</i>
+                  </div>
+                  <div class="d-flex flex-wrap justify-content-center mt-3">
+                      <a class="btn btn-outline-primary m-2" href="/admin/componentes">Mis Certificados</a>
+                      <a class="btn btn-outline-success m-2" href="/admin/clubes">Perfil</a>
+                      <a class="btn btn-outline-warning m-2" href="/admin/ligas">Pagos</a>
+                      <a class="btn btn-outline-info m-2" href="/admin/federacion">Otros Cursos</a>
+                      <a class="btn btn-outline-danger m-2" href="/admin/representacion">Reportes</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  
+    <!-- Tarjetas de resumen estadístico -->
+    <div class="row mt-4">
+      <div class="col-lg-6 col-md-6 mt-4">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Categorias</h5>
+                  <p class="card-text">Total de Cursos: <strong>{{ cantidadEmpleados }}</strong></p>
+                  <div class="progress">
+                      <div class="progress-bar bg-primary" role="progressbar" 
+                          [style.width]="porcentajeAdministrativos + '%'" 
+                          [attr.aria-valuenow]="empleadosAdministrativos" 
+                          [attr.aria-valuemin]="0"
+                          [attr.aria-valuemax]="cantidadEmpleados">
+                          {{ empleadosAdministrativos }}
+                      </div>
+                  </div>
+                  <small>Backend</small>
+                  <div class="progress mt-2">
+                      <div class="progress-bar bg-success" role="progressbar" 
+                          [style.width]="porcentajeOperativos + '%'" 
+                          [attr.aria-valuenow]="empleadosOperativos"
+                          [attr.aria-valuemin]="0"
+                          [attr.aria-valuemax]="cantidadEmpleados">
+                          {{ empleadosOperativos }} 
+                      </div>
+                  </div>
+                  <small>Fronkend</small>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-4">
+          <div class="card">
+              <div class="card-body text-center">
+                  <i class="material-icons text-info" style="font-size: 40px;">legend_toggle</i>
+                  <h5 class="card-title">Numero de Certificados</h5>
+                  <p class="card-text">{{ cantidadNominasProcesadas }}</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mt-4">
+          <div class="card">
+              <div class="card-body text-center">
+                  <i class="material-icons text-danger" style="font-size: 40px;">bubble_chart</i>
+                  <h5 class="card-title">Total de Cursos</h5>
+                  <p class="card-text">{{ totalPagos }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <!-- Navegación rápida a módulos administrativos -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Mis Cursos</h6>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-3">
+                <a href="ruta/a/otra/seccion" class="text-decoration-none">
+                  <div class="card text-center py-3 h-100 admin-quick-card">
+                    <img src="assets/img/banner1.png" alt="Imagen de Usuario" class="img-fluid mb-2" style="width: 100%; height: 120px;"/>
+                    <div><i class="fas fa-user-cog fa-3x mb-2 text-primary"></i></div>
+                    <h5>curso 1</h5>
+                    <p class="small mb-0">Gestionar perfiles, roles y permisos</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-3">
+                <a href="ruta/a/otra/seccion" class="text-decoration-none">
+                  <div class="card text-center py-3 h-100 admin-quick-card">
+                    <img src="assets/img/banner1.png" alt="Imagen de Usuario" class="img-fluid mb-2" style="width: 100%; height: 120px;"/>
+                    <div><i class="fas fa-user-cog fa-3x mb-2 text-primary"></i></div>
+                    <h5>curso 1</h5>
+                    <p class="small mb-0">Gestionar perfiles, roles y permisos</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-3">
+                <a href="ruta/a/otra/seccion" class="text-decoration-none">
+                  <div class="card text-center py-3 h-100 admin-quick-card">
+                    <img src="assets/img/banner1.png" alt="Imagen de Usuario" class="img-fluid mb-2" style="width: 100%; height: 120px;"/>
+                    <div><i class="fas fa-user-cog fa-3x mb-2 text-primary"></i></div>
+                    <h5>curso 1</h5>
+                    <p class="small mb-0">Gestionar perfiles, roles y permisos</p>
+                  </div>
+                </a>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+ 
+
+  </div>
+
+
+
+
+
+
+

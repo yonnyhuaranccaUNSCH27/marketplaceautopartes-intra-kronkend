@@ -13,7 +13,8 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "strictPropertyInitialization": false//este codigo se agrega para no inicial con undefined los atributos de las clases
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
