@@ -13,7 +13,6 @@ export class Usuario {
     fechamodificado:Date;
     termino1:number;
     termino2:number;
-   
     entidadespersonas: Entidadespersonas;
     usuariorol: Usuariorol[];
 }
