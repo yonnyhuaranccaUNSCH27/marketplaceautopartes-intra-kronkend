@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, signal } from '@angular/core';
-import { environment } from '../environments/environment';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { isPlatformBrowser } from '@angular/common';
 import { TokenService } from '../services/token.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
