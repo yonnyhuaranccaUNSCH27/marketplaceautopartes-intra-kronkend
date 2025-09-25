@@ -3,3 +3,4 @@ export class Tipocomprobante{
     codigo:          string;
     descripcion:     string;
 }
+ 
