@@ -1,4 +1,5 @@
 import { Compra } from './compra';
+import { Producto } from './producto';
 
 export class DetalleCompra {
     idDetalleCompra: number;

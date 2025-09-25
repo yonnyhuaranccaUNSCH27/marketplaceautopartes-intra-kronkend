@@ -1,4 +1,4 @@
-import { Ventaestadohistorial } from "./ventaestadohistorial";
+
 import { Canalrecepcion } from "./canalrecepcion";
 
 export class Notifitiendaventa {
@@ -8,7 +8,7 @@ export class Notifitiendaventa {
     mensaje:string;
     fechaenvio: Date;
     estado: number;
-    ventaestadohistorial: Ventaestadohistorial;
+    //ventaestadohistorial: Ventaestadohistorial;
     canalrecepcion: Canalrecepcion;
 
 }
