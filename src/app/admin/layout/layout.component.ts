@@ -32,7 +32,7 @@ export class LayoutComponent implements OnInit {
   nombreConRol: string = '';
   totalProductos=signal(0);
   headerProfileImage: string = 'assets/img/user.jpg';
-  
+
   menuOptions: MenuOption[] = [
     {
       href: "/admin/inventario",
@@ -137,7 +137,7 @@ export class LayoutComponent implements OnInit {
       icono: "LD",
       name: "Horarios de Docentes",
     },
-    
+
   ];
 
   gestionProductoOptions: MenuOption[] = [
@@ -156,7 +156,7 @@ export class LayoutComponent implements OnInit {
       icono: "MD",
       name: "Modulos de Software",
     },
-    
+
   ];
 
   gestionProductosOptions: MenuOption[] = [
@@ -165,7 +165,7 @@ export class LayoutComponent implements OnInit {
       icono: "LP",
       name: "Productos",
     },
-    
+
   ];
 
   gestionRegistrosOptions: MenuOption[] = [
@@ -178,11 +178,12 @@ export class LayoutComponent implements OnInit {
 
   private usuarioService = inject(UsuarioService);
   private productoService = inject(ProductoService);
+  loginService: any;
 
   constructor(
     private renderer2: Renderer2,
     private cdRef: ChangeDetectorRef,
-    private loginService: LoginService,
+    // private loginService: LoginService,
     @Inject(DOCUMENT) private _document: Document
   ) {}
 
@@ -192,24 +193,24 @@ export class LayoutComponent implements OnInit {
         if (token) {
           this.isLoading = true;
           this.cdRef.detectChanges(); // Forzar detección de cambios inmediatamente
-          
+
           const username = helper.decodeToken(token).sub;
           //console.log(username);
           this.usuarioService.findByUsername(username).subscribe({
             next: (data: Usuario) => {
               this.usuario = data;
-              
+
               this.isLoading = false;
-    
+
               // Verifica si el usuario tiene el rol de administrador
-              this.isAdmin = this.usuario?.roles?.some(role => role.idRol === 1) ?? false;
+              this.isAdmin = this.usuario?.roles?.some((role: { idRol: number; }) => role.idRol === 1) ?? false;
               const rolDescripcion = this.usuario.roles.length > 0 ? this.usuario.roles[0].descripcion : 'Sin Rol';
               this.nombreConRol = `${this.usuario.usernombres} (${rolDescripcion})`;
               this.cdRef.detectChanges(); // Forzar actualización de la vista
               this.headerProfileImage = data.urlFoto || 'assets/img/user.jpg';
 
             },
-            
+
           });
         } else {
           this.isLoading = false;
