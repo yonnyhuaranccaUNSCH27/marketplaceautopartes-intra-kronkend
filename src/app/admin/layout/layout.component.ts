@@ -1,15 +1,17 @@
 import { ChangeDetectorRef, Component, inject, Inject, OnInit, Renderer2, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { MaterialModule } from '../../material/material.module';
 import { MenuOption } from './interfaces/menu-option';
-import { LoginService } from '../../services/login.service';
+
 import { DOCUMENT } from '@angular/common';
 import { ItemMenuOptionComponent } from './components/item-menu-option/item-menu-option.component';
 import { Usuario } from '../../model/usuario';
+
+import { LoginService } from '../../services/login.service';
+import { MaterialModule } from '../../material/material.module';
 import { UsuarioService } from '../../services/usuario.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment } from '../../environments/environment';
-import { ProductoService } from '../../services/producto.service';
+
+
+
 
 declare var pcoded: any;
 declare var feather: any;
@@ -180,6 +182,7 @@ export class LayoutComponent implements OnInit {
   private productoService = inject(ProductoService);
   loginService: any;
 
+
   constructor(
     private renderer2: Renderer2,
     private cdRef: ChangeDetectorRef,
@@ -221,9 +224,8 @@ export class LayoutComponent implements OnInit {
       feather.replace();  // Inicializar Feather Icons después de cargar el script
     });
 
-    this.setupSidebarToggle();
 
-    this.productoService.getTotalProductos().subscribe(data=>this.totalProductos.set(data))
+    this.setupSidebarToggle();
   }
 
   private loadScript(url: string, callback: () => void) {

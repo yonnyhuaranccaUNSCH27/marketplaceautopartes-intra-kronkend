@@ -6,10 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
+
 import { isPlatformBrowser } from '@angular/common';
-import { TokenService } from '../services/token.service';
 import { environment } from '../../environments/environment';
+import { TokenService } from '../services/token.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +32,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   // Array de imágenes que se van a mostrar como fondo
   private images = [
-    '../../assets/img/portada1.jpg',
-    '../../assets/img/portada2.jpg',
-    '../../assets/img/portada3.png'
+    'assets/img/portada10.png',
+    'assets/img/portada11.png',
+    'assets/img/portada12.png'
   ];
 
   constructor(
