@@ -1,6 +1,6 @@
 import { Usuario } from "./usuario";
 
-export class Sesionusario {
+export class Sesionusuario {
     idSesionusuario: number;
     tokensesion: string;
     finicio:     Date;

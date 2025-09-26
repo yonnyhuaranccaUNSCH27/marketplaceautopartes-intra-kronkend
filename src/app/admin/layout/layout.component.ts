@@ -9,6 +9,8 @@ import { Usuario } from '../../model/usuario';
 import { LoginService } from '../../services/login.service';
 import { MaterialModule } from '../../material/material.module';
 import { UsuarioService } from '../../services/usuario.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -179,7 +181,7 @@ export class LayoutComponent implements OnInit {
   ]
 
   private usuarioService = inject(UsuarioService);
-  private productoService = inject(ProductoService);
+  // private productoService = inject(ProducgitoService);
   loginService: any;
 
 
