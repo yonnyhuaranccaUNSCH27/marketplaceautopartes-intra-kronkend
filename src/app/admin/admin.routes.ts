@@ -8,7 +8,7 @@ export const ADMIN_ROUTES: Routes = [
   },
 
   //  Rutas de Gestión de Perfiles
-
+  
   // Redirección por defecto si la ruta no existe
   {
     path: '**',
