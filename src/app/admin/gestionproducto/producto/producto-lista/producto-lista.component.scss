@@ -1,0 +1,77 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre los botones, ajusta según sea necesario */
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.btn-agregar{
+  background-color: #9c27b0;
+  color: #f3f4f6;
+}
+
+.btn-agregar:hover{
+  background-color: #6a1b9a;
+  color: #f3f4f6;
+}
+
+/* Card para agregar producto */
+.add-product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  cursor: pointer;
+  background: #f3f4f6;
+  border: 2px dashed #9c27b0;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #e1bee7;
+    transform: scale(1.05);
+  }
+
+  .add-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .add-icon {
+      font-size: 26px;
+      color: #9c27b0;
+    }
+
+    h2 {
+      margin-top: 8px;
+      color: #6a1b9a;
+    }
+  }
+}
+
+/* Card normal de producto */
+.product-card {
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+}
