@@ -15,4 +15,6 @@ export class Usuario {
     termino2:number;
     entidadespersonas: Entidadespersonas;
     usuariorol: Usuariorol[];
+  roles: any;
+  urlFoto: string;
 }
