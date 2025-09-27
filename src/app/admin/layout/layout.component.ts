@@ -175,9 +175,9 @@ export class LayoutComponent implements OnInit {
       name: "Vehiculos",
     },
     {
-      href: "/admin/modulos",
-      icono: "MD",
-      name: "Modulos de Software",
+      href: "/admin/producto/lista-tarifario",
+      icono: "TA",
+      name: "Tarifarios",
     },
 
   ];
