@@ -1,10 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MaterialModule } from '../../../../material/material.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-producto-lista',
-  imports: [MaterialModule],
+  imports: [MaterialModule,CommonModule],
   templateUrl: './producto-lista.component.html',
   styleUrl: './producto-lista.component.scss'
 })
@@ -29,7 +30,7 @@ export class ProductoListaComponent implements OnInit{
 
   ngOnInit(): void {}
 
-  // 📄 Paginación sobre productos filtrados
+  // Paginación sobre productos filtrados
   onPageChange(event: PageEvent) {
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
@@ -43,7 +44,7 @@ export class ProductoListaComponent implements OnInit{
 
 
 
-  // 🔍 Filtro
+  // Filtro
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.searchText = filterValue;
@@ -58,7 +59,7 @@ export class ProductoListaComponent implements OnInit{
     this.pagedProductos = this.filteredProductos.slice(0, this.pageSize);
   }
 
-  // ❌ Limpiar filtro
+  //  Limpiar filtro
   clearFilter() {
     this.searchText = '';
     this.filteredProductos = [...this.productos];

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MaterialModule } from '../../../../material/material.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-comp-producto-lista',
-  imports: [MaterialModule],
+  imports: [MaterialModule,CommonModule],
   templateUrl: './comp-producto-lista.component.html',
   styleUrl: './comp-producto-lista.component.scss'
 })
