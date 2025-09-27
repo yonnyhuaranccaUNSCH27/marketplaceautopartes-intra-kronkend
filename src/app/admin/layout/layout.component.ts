@@ -10,7 +10,8 @@ import { LoginService } from '../../services/login.service';
 import { MaterialModule } from '../../material/material.module';
 import { UsuarioService } from '../../services/usuario.service';
 import {MatIconModule} from '@angular/material/icon';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -36,7 +37,7 @@ export class LayoutComponent implements OnInit {
   nombreConRol: string = '';
   totalProductos=signal(0);
   headerProfileImage: string = 'assets/img/user.jpg';
-  
+
   menuOptions: MenuOption[] = [
     {
       href: "/admin/inventario",
@@ -141,7 +142,7 @@ export class LayoutComponent implements OnInit {
       icono: "LD",
       name: "Horarios de Docentes",
     },
-    
+
   ];
 
   gestionProductoOptions: MenuOption[] = [
@@ -160,7 +161,7 @@ export class LayoutComponent implements OnInit {
       icono: "MD",
       name: "Modulos de Software",
     },
-    
+
   ];
 
   gestionProductosOptions: MenuOption[] = [
@@ -169,7 +170,7 @@ export class LayoutComponent implements OnInit {
       icono: "LP",
       name: "Productos",
     },
-    
+
   ];
 
   gestionRegistrosOptions: MenuOption[] = [
@@ -194,20 +195,51 @@ export class LayoutComponent implements OnInit {
 
 
   private usuarioService = inject(UsuarioService);
+  // private productoService = inject(ProducgitoService);
+  loginService: any;
 
 
   constructor(
     private renderer2: Renderer2,
     private cdRef: ChangeDetectorRef,
-    private loginService: LoginService,
+    // private loginService: LoginService,
     @Inject(DOCUMENT) private _document: Document
   ) {}
 
   ngOnInit(): void {
+    const helper = new JwtHelperService();
+        const token = sessionStorage.getItem(environment.TOKEN_NAME);
+        if (token) {
+          this.isLoading = true;
+          this.cdRef.detectChanges(); // Forzar detección de cambios inmediatamente
+
+          const username = helper.decodeToken(token).sub;
+          //console.log(username);
+          this.usuarioService.findByUsername(username).subscribe({
+            next: (data: Usuario) => {
+              this.usuario = data;
+
+              this.isLoading = false;
+
+              // Verifica si el usuario tiene el rol de administrador
+              this.isAdmin = this.usuario?.roles?.some((role: { idRol: number; }) => role.idRol === 1) ?? false;
+              const rolDescripcion = this.usuario.roles.length > 0 ? this.usuario.roles[0].descripcion : 'Sin Rol';
+              this.nombreConRol = `${this.usuario.usernombres} (${rolDescripcion})`;
+              this.cdRef.detectChanges(); // Forzar actualización de la vista
+              this.headerProfileImage = data.urlFoto || 'assets/img/user.jpg';
+
+            },
+
+          });
+        } else {
+          this.isLoading = false;
+          this.cdRef.detectChanges();
+        }
+
     this.loadScript('./assets/admin/js/feather.min.js', () => {
       feather.replace();  // Inicializar Feather Icons después de cargar el script
     });
-   
+
 
     this.setupSidebarToggle();
   }
