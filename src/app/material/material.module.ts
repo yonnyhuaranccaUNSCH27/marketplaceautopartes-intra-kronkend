@@ -29,6 +29,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox'
 import {MatChipsModule} from '@angular/material/chips';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {  MtxDatetimepickerModule } from '@ng-matero/extensions/datetimepicker';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -62,7 +63,8 @@ import {  MtxDatetimepickerModule } from '@ng-matero/extensions/datetimepicker';
     MatNativeDateModule,
     MatAutocompleteModule,
     MatCheckboxModule,MtxDatetimepickerModule,
-    MatChipsModule, NgFor,NgIf
+    MatChipsModule,
+    MatButtonToggleModule
   ],
   providers:[
     {

@@ -9,9 +9,9 @@ import { Usuario } from '../../model/usuario';
 import { LoginService } from '../../services/login.service';
 import { MaterialModule } from '../../material/material.module';
 import { UsuarioService } from '../../services/usuario.service';
+import {MatIconModule} from '@angular/material/icon';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from '../../../environments/environment';
-
 
 
 
@@ -24,7 +24,8 @@ declare var feather: any;
     RouterModule,
     MaterialModule,
     RouterOutlet,
-    ItemMenuOptionComponent
+    ItemMenuOptionComponent,
+    MatIconModule
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
@@ -179,6 +180,19 @@ export class LayoutComponent implements OnInit {
       name: "Plan de estudios",
     },
   ]
+
+
+  cajaOptions: MenuOption[] = [
+    { name: 'Caja', href: '/admin/caja', icono: 'point_of_sale' },
+  ];
+  comprasOptions: MenuOption[] = [
+    { name: 'Proveedores', href: '/admin/compras/proveedores', icono: 'add_shopping_cart' },
+  ];
+  ventasOptions: MenuOption[] = [
+    { name: 'Listado de Ventas', href: '/admin/ventas', icono: 'point_of_sale' },
+  ];
+
+
 
   private usuarioService = inject(UsuarioService);
   // private productoService = inject(ProducgitoService);
