@@ -1,0 +1,44 @@
+<!-- <app-navegacion [currentUrl]="currentUrl"></app-navegacion> -->
+<section class="row">
+  <mat-card class="col-lg-7 col-12">
+    <mat-card-header>
+      <mat-card-subtitle>Realizar Ventas</mat-card-subtitle>
+    </mat-card-header>
+    <hr />
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="outline" class="col-6 col-md-4">
+          <mat-label>Trabajador</mat-label>
+          <input matInput placeholder="Nombre del trabajador" value="jorge" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-6 col-md-4">
+          <mat-label>Sucursal</mat-label>
+          <mat-select value="sucu-01">
+            <!-- @if(habitacionActual()==null){
+
+            <mat-option value="sucu-01">Sin sucursal</mat-option>
+            }@else {
+            <mat-option value="sucu-01">{{
+              habitacionActual()?.empresa?.nombreComercial ?? "Sin sucursal"
+            }}</mat-option>
+            } -->
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-12 col-md-4" appearance="outline">
+          <mat-label>Buscar Servicio o Consumo</mat-label>
+          <input matInput [formControl]="searchControl" [matAutocomplete]="auto" />
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="seleccionarProducto($event)">
+            <!-- @for (p of searchProductos(); track p.idProducto) {
+            <mat-option [value]="p">{{ p.nombre }}</mat-option>
+            } -->
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+    
+
+      <app-detalle-card> </app-detalle-card> </mat-card-content
+  ></mat-card>
+  <pago-card class="col-lg-5 col-12"></pago-card>
+</section>

@@ -29,4 +29,7 @@ export class Entidadespersonas {
     tipoentidadespersonas:Tipoentidadespersonas;
     oficina:Oficina;
     niveleducacion:Niveleducacion;
+    nombres: string;
+    apellidos: string;
+    numdocumento: string;
 }

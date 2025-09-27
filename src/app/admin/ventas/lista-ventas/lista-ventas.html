@@ -1,0 +1,102 @@
+<!-- <app-navegacion [currentUrl]="currentUrl"></app-navegacion> -->
+<div class="container">
+  <div class="row">
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <br>
+        <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="nro">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> NRO </th>
+              <td mat-cell *matCellDef="let row; let i = index"> {{i+1}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="accion">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ACCIÓN </th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>settings</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button (click)="viewA4(row.idVenta)" mat-menu-item>
+                    <mat-icon>receipt</mat-icon>
+                    <span>Boleta A4</span>
+                  </button>
+                  <button mat-menu-item (click)="viewTicket(row.idVenta)">
+                    <mat-icon>receipt_long</mat-icon>
+                    <span>Ticket</span>
+                  </button>
+                </mat-menu>
+              </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="tipoCompra">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> TIPO DE COMP. </th>
+              <td mat-cell *matCellDef="let row"> {{row.tipoComprobante.descripcion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="serie">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> SERIE </th>
+              <td mat-cell *matCellDef="let row"> {{row.serie}}-{{row.correlativo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoDocumento">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> TIPO DE DOC. </th>
+              <td mat-cell *matCellDef="let row"> {{row.cliente.persona==null?"RUC":"DNI"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nroDocumento">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> N° DOC </th>
+              <td mat-cell *matCellDef="let row"> {{row.cliente.persona==null?row.cliente.empresa.numDoc:row.cliente.persona.perNumdocumento}} </td>
+            </ng-container>
+
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="fechaEmision">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> FECHA DE EM. </th>
+                <td mat-cell *matCellDef="let row"> {{row.femision | date:'dd/MM/yyyy HH:mm'}} </td>
+            </ng-container>
+
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="total">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> TOTAL </th>
+              <td mat-cell *matCellDef="let row"> {{row.total}} </td>
+            </ng-container>
+
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="respuestaSunat">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> RESPUESTA SUNAT (CDR) </th>
+              <td mat-cell *matCellDef="let row"> "No implementado"</td>
+            </ng-container>
+
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="estado">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ESTADO </th>
+              <td mat-cell *matCellDef="let row"> {{"No implementado"}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[10, 25, 100]"  [length]="totalVentas" (page)="showMore($event)"></mat-paginator>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

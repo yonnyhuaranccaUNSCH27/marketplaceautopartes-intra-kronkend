@@ -212,6 +212,51 @@
         }
       </ul>
     </li>
+    <li class="sidebar-nav-item">
+      <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#caja">
+        <span class="sidebar-nav-icon"><i data-feather="shopping-cart"></i></span>
+        <span class="sidebar-nav-name"> Gestión de Caja </span>
+        <span class="sidebar-nav-end">
+          <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+        </span>
+      </a>
+      <ul class="sidebar-sub-nav collapse" id="caja">
+        @for (o of cajaOptions; track $index) {
+          <item-menu-option [itemOption]="o"></item-menu-option>
+        }
+      </ul>
+    </li>
+
+     <li class="sidebar-nav-item">
+      <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#compras">
+        <span class="sidebar-nav-icon"><i data-feather="shopping-cart"></i></span>
+        <span class="sidebar-nav-name"> Gestión de Compras </span>
+        <span class="sidebar-nav-end">
+          <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+        </span>
+      </a>
+      <ul class="sidebar-sub-nav collapse" id="compras">
+
+        @for (o of comprasOptions; track $index) {
+          <item-menu-option [itemOption]="o"></item-menu-option>
+        }
+      </ul>
+    </li>
+     <li class="sidebar-nav-item">
+      <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#ventas">
+        <span class="sidebar-nav-icon"><i data-feather="shopping-cart"></i></span>
+        <span class="sidebar-nav-name"> Gestión de Ventas </span>
+        <span class="sidebar-nav-end">
+          <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+        </span>
+      </a>
+      <ul class="sidebar-sub-nav collapse" id="ventas">
+
+        @for (o of ventasOptions; track $index) {
+          <item-menu-option [itemOption]="o"></item-menu-option>
+        }
+      </ul>
+    </li>
 
     <li class="sidebar-nav-item">
       <a href="/admin/mensajes" class="sidebar-nav-link">
