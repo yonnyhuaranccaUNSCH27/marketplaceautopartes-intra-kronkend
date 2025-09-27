@@ -19,11 +19,7 @@ export const routes: Routes = [
     {
         path: 'admin',
         component: LayoutComponent,
-<<<<<<< HEAD
-      // canActivate: [authGuard,activeGuard,certGuard],
-=======
        // canActivate: [authGuard,activeGuard,certGuard],
->>>>>>> 204913c9cfef2789a83c43392229eda12de0cf49
         loadChildren: () => import('./admin/admin.routes').then(m=>m.ADMIN_ROUTES)
     },
     {
