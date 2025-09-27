@@ -10,17 +10,31 @@ export const ADMIN_ROUTES: Routes = [
   //  Rutas de Gestión de Perfiles
 
 
+<<<<<<< HEAD
+=======
+  //  Rutas de Gestión de Productos y Vehículos
+>>>>>>> 204913c9cfef2789a83c43392229eda12de0cf49
   {
-    path: 'caja',
-    loadChildren: () => import('./caja/caja.routes').then(r => r.cajaRoutes),
+    path: 'producto',
+    loadChildren: () => import('./gestionproducto/producto.routes').then(r => r.productoRoutes),
   },
   {
+    path: 'vehiculo',
+    loadChildren: () => import('./gestionvehiculo/vehiculo.routes').then(r => r.vehiculoRoutes),
+  },
+
+
+  {
     path: 'compras',
-    loadChildren: () => import('./compras/compras.routes').then(r => r.comprasRoutes),
+    loadChildren: () => import('./gestion-compras/compras.routes').then(r => r.comprasRoutes),
   },
   {
     path: 'ventas',
-    loadChildren: () => import('./ventas/ventas.routes').then(r => r.ventasRoutes),
+    loadChildren: () => import('./gestion-ventas/ventas.routes').then(r => r.ventasRoutes),
+  },
+  {
+    path: 'tienda',
+    loadComponent: () => import('./gestion-tienda/crud-tienda/crud-tienda').then(m => m.CrudTiendaComponent),
   },
   {
     path: 'usuarios',
@@ -35,6 +49,10 @@ export const ADMIN_ROUTES: Routes = [
   {
     path: '**',
     redirectTo: '',
+<<<<<<< HEAD
   },
 
+=======
+  }
+>>>>>>> 204913c9cfef2789a83c43392229eda12de0cf49
 ];

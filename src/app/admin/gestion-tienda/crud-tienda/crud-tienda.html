@@ -1,0 +1,206 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded-top mb-0">
+    <h2>
+      Mi Tienda
+    </h2>
+  </div>
+
+  <div class="mat-typography px-4 py-3">
+    <form [formGroup]="form">
+      <div class="section-container mb-4">
+        <h5 class="section-title">Información de la Tienda</h5>
+        
+          <div class="row d-flex align-items-stretch">
+            <div class="col-md-4 p-3 d-flex">
+              <mat-card class="logo-upload-card align-items-center w-100 d-flex flex-column justify-content-center">
+                <mat-card-content>
+                  <div class="logo-preview-container">
+                    <img [src]="logoPreview || 'assets/placeholder-image.png'" alt="Logo de la tienda" class="img-fluid rounded shadow-sm">
+                  </div>
+                  <input #fileInput type="file" accept="image/*" style="display:none" (change)="onLogoSelected($event)">
+                  <button mat-flat-button color="primary" type="button" (click)="fileInput.click()" class="w-100">
+                    <mat-icon>cloud_upload</mat-icon> Subir
+                  </button>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <div class="col-md-8 d-flex flex-column justify-content-center">
+              
+            
+              <div class="w-100">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Nombre Comercial</mat-label>
+                  <input matInput formControlName="nombreComercial">
+                  @if (form.controls['nombreComercial'].hasError('required')) {
+                    <mat-error >Campo requerido</mat-error>
+                  }
+                </mat-form-field>
+              </div>
+              <div class="w-100">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Razón Social</mat-label>
+                <input matInput formControlName="razonSociel">
+                @if (form.controls['razonSociel'].hasError('required')) {
+                  <mat-error >Campo requerido</mat-error>
+                }
+              </mat-form-field>
+            </div>
+            </div>
+            
+            
+            <div class="col-md-6 ">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select formControlName="tipoidentidad">
+                  <!-- <mat-option *ngFor="let tipo of tiposDoc" [value]="tipo">{{tipo.descripcion}}</mat-option> -->
+                </mat-select>
+                @if (form.controls['tipoidentidad'].hasError('required')) {
+                  <mat-error >Campo requerido</mat-error>
+                }
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 ">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Número de Documento</mat-label>
+                <input matInput formControlName="numDoc" (blur)="lookupRUC()">
+                <button mat-icon-button matSuffix (click)="lookupRUC()" type="button" [disabled]="form.get('numDoc')?.value?.length !== 11">
+                  <mat-icon>search</mat-icon>
+                </button>
+                @if (form.controls['numDoc'].hasError('required')) {
+                  <mat-error >Campo requerido</mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+     
+    <div class="section-container mb-4">
+      <h5 class="section-title">Contacto y Ubicación</h5>
+      <div class="row">
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Dirección</mat-label>
+            <input matInput formControlName="direccion">
+            @if (form.controls['direccion'].hasError('required')) {
+              <mat-error >Campo requerido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="telefono">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput type="email" formControlName="correo">
+            <mat-icon matSuffix>email</mat-icon>
+            @if (form.controls['correo'].hasError('email')) {
+              <mat-error >Correo inválido</mat-error>
+            }
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Sitio Web</mat-label>
+            <input matInput formControlName="sitioWeb">
+            <mat-icon matSuffix>language</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Departamento</mat-label>
+            <mat-select formControlName="iddepartamento" (selectionChange)="obtenerProvincias()">
+              @for (sp of departamentos; track sp.idUbigeo) {
+                <mat-option [value]="sp.ubidpto">{{sp.denominacion}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Provincia</mat-label>
+            <mat-select formControlName="idprovincia" (selectionChange)="obtenerDistritos()">
+              @for (sp of provincias; track sp.idUbigeo){
+                <mat-option [value]="sp.ubiprovincia">{{ sp.denominacion }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Distrito</mat-label>
+            <mat-select formControlName="iddistrito">
+              @for (sp of distritos; track sp.idUbigeo){
+                <mat-option [value]="sp.idUbigeo">{{ sp.denominacion }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuration Section -->
+    <div class="section-container mb-4">
+      <h5 class="section-title">Información Tributaria</h5>
+      <div class="row">
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>IGV (%)</mat-label>
+            <input matInput type="number" formControlName="igv">
+            <!-- @if (form.controls['igv']?.errors?.['min'] || form.controls['igv']?.errors?.['max']) {
+              <mat-error>Valor inválido</mat-error>
+            } -->
+          </mat-form-field>
+        </div>
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Usuario SOL</mat-label>
+            <input matInput formControlName="usuarioSol">
+          </mat-form-field>
+        </div>
+        <div class="col-md-4 ">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Clave SOL</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="claveSol">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-12 ">
+          <div class="certificate-upload p-3 border rounded">
+            <label class="form-label mb-2"><strong>Certificado Digital (.pem)</strong></label>
+            <div class="mat-file-upload"></div>
+              <input #certInput type="file" accept=".pem" style="display:none" (change)="onCertificateSelected($event)">
+              <mat-form-field appearance="outline" class="w-100">
+              <input matInput [value]="certificateFileName || 'Ningún archivo seleccionado'" readonly>
+              <button mat-icon-button matSuffix (click)="certInput.click()" type="button">
+                <mat-icon>attach_file</mat-icon>
+              </button>
+              <mat-hint>Formato .pem requerido</mat-hint>
+              </mat-form-field>
+            </div>
+            <small class="text-muted">Seleccione el archivo de certificado digital en formato .pem</small>
+          </div>
+        </div>
+      
+    </div>
+  </form>
+</div>
+<div class="d-flex justify-content-end px-4 py-3 bg-light rounded-bottom">
+  <button mat-button (click)="onCancel()" [disabled]="isLoading">Cancelar</button>
+  <button mat-flat-button color="primary" (click)="onSave()" [disabled]="form.invalid || isLoading">
+    <mat-spinner diameter="20" *ngIf="isLoading" class="me-2"></mat-spinner>
+    <mat-icon *ngIf="!isLoading">save</mat-icon> {{isEditMode ? 'Actualizar' : 'Guardar'}}
+  </button>
+</div>

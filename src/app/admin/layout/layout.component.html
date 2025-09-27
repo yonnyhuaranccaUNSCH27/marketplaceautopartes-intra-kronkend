@@ -92,7 +92,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
             <a class="dropdown-item" routerLink="/admin/perfil">Mi perfil</a>
-            <a class="dropdown-item" routerLink="/admin/institucion">Mi tienda</a>
+            <a class="dropdown-item" routerLink="/admin/tienda">Mi tienda</a>
             <a class="dropdown-item" routerLink="/admin/trabajador">Trabajadores</a>
             <a class="dropdown-item" routerLink="/admin/usuario">Gestión de Usuario</a>
             <a class="dropdown-item" routerLink="/admin/ayuda">Ayuda</a>
@@ -228,20 +228,7 @@
         }
       </ul>
     </li>
-    <li class="sidebar-nav-item">
-      <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#caja">
-        <span class="sidebar-nav-icon"><i data-feather="shopping-cart"></i></span>
-        <span class="sidebar-nav-name"> Gestión de Caja </span>
-        <span class="sidebar-nav-end">
-          <i data-feather="chevron-right" class="nav-collapse-icon"></i>
-        </span>
-      </a>
-      <ul class="sidebar-sub-nav collapse" id="caja">
-        @for (o of cajaOptions; track $index) {
-          <item-menu-option [itemOption]="o"></item-menu-option>
-        }
-      </ul>
-    </li>
+ 
 
      <li class="sidebar-nav-item">
       <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#compras">

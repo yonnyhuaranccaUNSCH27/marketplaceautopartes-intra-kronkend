@@ -165,14 +165,14 @@ export class LayoutComponent implements OnInit {
 
   gestionProductoOptions: MenuOption[] = [
     {
-      href: "/admin/productos",
+      href: "/admin/producto/lista-producto",
       icono: "LP",
-      name: "Lista de Productos",
+      name: "Productos",
     },
     {
-      href: "/admin/tipoproducto",
-      icono: "TP",
-      name: "Tipo de Producto",
+      href: "/admin/vehiculo/lista-vehiculo",
+      icono: "LM",
+      name: "Vehiculos",
     },
     {
       href: "/admin/modulos",
@@ -200,14 +200,12 @@ export class LayoutComponent implements OnInit {
   ]
 
 
-  cajaOptions: MenuOption[] = [
-    { name: 'Caja', href: '/admin/caja', icono: 'point_of_sale' },
-  ];
   comprasOptions: MenuOption[] = [
-    { name: 'Proveedores', href: '/admin/compras/proveedores', icono: 'add_shopping_cart' },
+    { name: 'Proveedores', href: '/admin/compras/proveedores', icono: 'Pr' },
   ];
   ventasOptions: MenuOption[] = [
-    { name: 'Listado de Ventas', href: '/admin/ventas', icono: 'point_of_sale' },
+    { name: 'Caja', href: '/admin/ventas/caja', icono: 'Ca' },
+    { name: 'Ventas', href: '/admin/ventas/lista', icono: 'Ve' },
   ];
 
 
