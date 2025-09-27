@@ -9,7 +9,7 @@ export const ADMIN_ROUTES: Routes = [
 
   //  Rutas de Gestión de Perfiles
 
-  
+
   {
     path: 'caja',
     loadChildren: () => import('./caja/caja.routes').then(r => r.cajaRoutes),
@@ -22,9 +22,19 @@ export const ADMIN_ROUTES: Routes = [
     path: 'ventas',
     loadChildren: () => import('./ventas/ventas.routes').then(r => r.ventasRoutes),
   },
+  {
+    path: 'usuarios',
+    loadChildren: () => import('./gestionusuario/usuarios.routes').then(r => r.usuariosRoutes),
+  },
+  {
+    path: 'planes',
+    loadChildren: () => import('./planes/planes.routes').then(r => r.planesRoutes),
+  },
+
   // Redirección por defecto si la ruta no existe
   {
     path: '**',
     redirectTo: '',
-  }
+  },
+
 ];

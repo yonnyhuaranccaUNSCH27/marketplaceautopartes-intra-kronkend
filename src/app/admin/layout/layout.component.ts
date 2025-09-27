@@ -113,6 +113,24 @@ export class LayoutComponent implements OnInit {
     },
   ];
 
+  gestionPlanesOptions: MenuOption[] = [
+    {
+      href: "/admin/planes",
+      icono: "MP",
+      name: "Mis Planes",
+    },
+    {
+      href: "/admin/categorias",
+      icono: "CP",
+      name: "Categorías de Planes",
+    },
+    {
+      href: "/admin/resultados-planes",
+      icono: "MR",
+      name: "Mis Resultados",
+    }
+  ];
+
   gestionCursosOptions: MenuOption[] = [
     {
       href: "/admin/cursos",

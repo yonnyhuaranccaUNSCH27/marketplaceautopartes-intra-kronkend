@@ -163,6 +163,22 @@
       </ul>
     </li>
 
+     <!--  Gestión de Planes -->
+    <li class="sidebar-nav-item">
+      <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#gestionPlanes">
+        <span class="sidebar-nav-icon"><i data-feather="book"></i></span>
+        <span class="sidebar-nav-name"> Gestión de Planes </span>
+        <span class="sidebar-nav-end">
+          <i data-feather="chevron-right" class="nav-collapse-icon"></i>
+        </span>
+      </a>
+      <ul class="sidebar-sub-nav collapse" id="gestionPlanes">
+        @for (o of gestionPlanesOptions; track $index) {
+          <item-menu-option [itemOption]="o"></item-menu-option>
+        }
+      </ul>
+    </li>
+
     <!--  Gestión de Cursos -->
     <li class="sidebar-nav-item">
       <a class="sidebar-nav-link collapsed" data-toggle="collapse" href="#gestionCursos">
