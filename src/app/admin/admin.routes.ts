@@ -19,6 +19,16 @@ export const ADMIN_ROUTES: Routes = [
     path: 'vehiculo',
     loadChildren: () => import('./gestionvehiculo/vehiculo.routes').then(r => r.vehiculoRoutes),
   },
+
+
+  {
+    path: 'compras',
+    loadChildren: () => import('./gestion-compras/compras.routes').then(r => r.comprasRoutes),
+  },
+  {
+    path: 'ventas',
+    loadChildren: () => import('./gestion-ventas/ventas.routes').then(r => r.ventasRoutes),
+  },
   // Redirección por defecto si la ruta no existe
   {
     path: '**',

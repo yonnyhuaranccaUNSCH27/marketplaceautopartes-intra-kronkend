@@ -1,7 +1,7 @@
 import { Entidadespersonas } from './entidadespersonas';
 import { Venta } from './venta';
 
-export class Movimientocliente {
+export interface Movimientocliente {
     idMovimientocliente: number;
     fechaCreada: string;
     totalcompra: number;
@@ -9,4 +9,3 @@ export class Movimientocliente {
     entidadespersonas: Entidadespersonas;
     venta: Venta;
 }
-
