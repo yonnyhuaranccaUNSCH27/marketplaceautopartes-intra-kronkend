@@ -45,10 +45,8 @@ export const ADMIN_ROUTES: Routes = [
   {
     path: '**',
     redirectTo: '',
-<<<<<<< HEAD
   },
 
-=======
-  }
->>>>>>> 204913c9cfef2789a83c43392229eda12de0cf49
+
+
 ];
