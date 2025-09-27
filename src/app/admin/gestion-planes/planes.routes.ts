@@ -8,7 +8,7 @@ export const planesRoutes: Routes = [
       },
       {
         path: '',
-        loadComponent: () => import('./crud-planes/crud-planes').then(c => c.CrudPlanes),
+        loadComponent: () => import('./vista-planes/crud-planes/crud-planes').then(c => c.CrudPlanes),
         title: 'crud de Planes'
       },
 ];
