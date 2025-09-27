@@ -9,23 +9,10 @@
       <div class="row">
         <mat-form-field appearance="outline" class="col-6 col-md-4">
           <mat-label>Trabajador</mat-label>
-          <input matInput placeholder="Nombre del trabajador" value="jorge" />
+          <input matInput placeholder="Nombre del trabajador" value="Javier" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="col-6 col-md-4">
-          <mat-label>Sucursal</mat-label>
-          <mat-select value="sucu-01">
-            <!-- @if(habitacionActual()==null){
-
-            <mat-option value="sucu-01">Sin sucursal</mat-option>
-            }@else {
-            <mat-option value="sucu-01">{{
-              habitacionActual()?.empresa?.nombreComercial ?? "Sin sucursal"
-            }}</mat-option>
-            } -->
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="col-12 col-md-4" appearance="outline">
+        <mat-form-field class="col-12 col-md-8" appearance="outline">
           <mat-label>Buscar Servicio o Consumo</mat-label>
           <input matInput [formControl]="searchControl" [matAutocomplete]="auto" />
           <mat-autocomplete #auto="matAutocomplete" (optionSelected)="seleccionarProducto($event)">

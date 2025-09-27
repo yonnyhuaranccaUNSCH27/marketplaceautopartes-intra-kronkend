@@ -18,6 +18,10 @@ export const ADMIN_ROUTES: Routes = [
     path: 'ventas',
     loadChildren: () => import('./gestion-ventas/ventas.routes').then(r => r.ventasRoutes),
   },
+  {
+    path: 'tienda',
+    loadComponent: () => import('./gestion-tienda/crud-tienda/crud-tienda').then(m => m.CrudTiendaComponent),
+  },
   // Redirección por defecto si la ruta no existe
   {
     path: '**',
