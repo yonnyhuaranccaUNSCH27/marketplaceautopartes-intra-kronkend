@@ -1,0 +1,62 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="">Principal</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Productos</li>
+    </ol>
+  </nav>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Mis productos</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="gap-3 mb-2">
+    <!--<button mat-raised-button (click)="openDialog()" class="demo-button green-button" matTooltip="Nuevo Federación">Agregar</button>-->
+    <a mat-raised-button class="btn-agregar" href="/admin/formulario-producto">
+      Editar marca
+    </a>
+    <button mat-raised-button>Espejos</button>
+  </mat-card-actions>
+  <mat-card-content>
+
+    <mat-form-field>
+      <mat-label>Buscar productos</mat-label>
+      <input matInput (input)="applyFilter($event)">
+    </mat-form-field>
+
+    <div class="card-container">
+
+      <!-- Card especial para agregar producto -->
+      <mat-card class="add-product-card" (click)="agregarProducto()">
+        <mat-card-content>
+          <div class="add-content">
+            <mat-icon class="add-icon">add_shopping_cart</mat-icon>
+            <h2>Agregar Producto</h2>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Cards de productos -->
+      <mat-card *ngFor="let producto of pagedProductos" class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{ producto.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="producto.imagen" alt="{{ producto.nombre }}">
+        <mat-card-content>
+          <p>{{ producto.descripcion }}</p>
+          <h5>{{ producto.precio }}</h5>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="accent">Editar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <!-- Paginador -->
+    <mat-paginator [length]="productos.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+
+  </mat-card-content>
+</mat-card>
