@@ -9,7 +9,18 @@ export const ADMIN_ROUTES: Routes = [
 
   //  Rutas de Gestión de Perfiles
 
-  
+
+  //  Rutas de Gestión de Productos y Vehículos
+  {
+    path: 'producto',
+    loadChildren: () => import('./gestionproducto/producto.routes').then(r => r.productoRoutes),
+  },
+  {
+    path: 'vehiculo',
+    loadChildren: () => import('./gestionvehiculo/vehiculo.routes').then(r => r.vehiculoRoutes),
+  },
+
+
   {
     path: 'compras',
     loadChildren: () => import('./gestion-compras/compras.routes').then(r => r.comprasRoutes),

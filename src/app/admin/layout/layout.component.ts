@@ -147,14 +147,14 @@ export class LayoutComponent implements OnInit {
 
   gestionProductoOptions: MenuOption[] = [
     {
-      href: "/admin/productos",
+      href: "/admin/producto/lista-producto",
       icono: "LP",
-      name: "Lista de Productos",
+      name: "Productos",
     },
     {
-      href: "/admin/tipoproducto",
-      icono: "TP",
-      name: "Tipo de Producto",
+      href: "/admin/vehiculo/lista-vehiculo",
+      icono: "LM",
+      name: "Vehiculos",
     },
     {
       href: "/admin/modulos",
