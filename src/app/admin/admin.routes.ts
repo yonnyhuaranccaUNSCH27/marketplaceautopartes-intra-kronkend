@@ -38,7 +38,7 @@ export const ADMIN_ROUTES: Routes = [
   },
   {
     path: 'planes',
-    loadChildren: () => import('./planes/planes.routes').then(r => r.planesRoutes),
+    loadChildren: () => import('./gestion-planes/planes.routes').then(r => r.planesRoutes),
   },
 
   // Redirección por defecto si la ruta no existe
