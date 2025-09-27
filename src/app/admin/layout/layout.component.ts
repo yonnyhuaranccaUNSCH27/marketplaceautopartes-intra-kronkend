@@ -206,6 +206,7 @@ export class LayoutComponent implements OnInit {
   ventasOptions: MenuOption[] = [
     { name: 'Caja', href: '/admin/ventas/caja', icono: 'Ca' },
     { name: 'Ventas', href: '/admin/ventas/lista', icono: 'Ve' },
+    { name: 'Pedidos', href: '/admin/ventas/lista-pedidos', icono: 'Pe' },
   ];
 
 
