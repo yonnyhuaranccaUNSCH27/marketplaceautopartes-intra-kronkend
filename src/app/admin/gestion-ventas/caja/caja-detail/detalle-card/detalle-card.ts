@@ -1,11 +1,11 @@
 import { Component, inject, input } from '@angular/core';
-import { MaterialModule } from '../../../../material/material.module';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { MatDialog } from '@angular/material/dialog';
 import { CardItem } from '../caja-detail';
+import { MaterialModule } from '../../../../../material/material.module';
 export interface DateRange {
   start: FormControl<Date | null>;
   end: FormControl<Date | null>;

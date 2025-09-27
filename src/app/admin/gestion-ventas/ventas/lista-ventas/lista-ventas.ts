@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { MaterialModule } from '../../../material/material.module';
+import { MaterialModule } from '../../../../material/material.module';
 import { MatTableDataSource} from '@angular/material/table';
 import { MatSort} from '@angular/material/sort';
 import { MatPaginator} from '@angular/material/paginator';
-import { VentaService } from '../../../services/venta.service';
-import { Venta } from '../../../model/venta';
+import { VentaService } from '../../../../services/venta.service';
+import { Venta } from '../../../../model/venta';
 import { DatePipe } from '@angular/common';
 
 @Component({

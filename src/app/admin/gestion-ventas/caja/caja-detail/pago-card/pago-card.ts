@@ -2,10 +2,8 @@ import { ChangeDetectorRef, Component, inject, input, signal, SimpleChanges, OnC
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { MaterialModule } from '../../../../material/material.module';
 import { CommonModule } from '@angular/common';
-import { TipocomprobanteService } from '../../../../services/tipocomprobante.service';
-import { Venta } from '../../../../model/venta';
+import { MaterialModule } from '../../../../../material/material.module';
 @Component({
   selector: 'pago-card',
   imports: [MaterialModule, CommonModule,],

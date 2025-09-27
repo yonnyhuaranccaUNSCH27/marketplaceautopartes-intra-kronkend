@@ -1,18 +1,18 @@
 import { Component, inject, signal, PLATFORM_ID } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MaterialModule } from '../../../material/material.module';
 import { MatSortModule } from '@angular/material/sort';
 import { MatListModule } from '@angular/material/list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ActivatedRoute } from '@angular/router';
-import type { Producto } from '../../../model/producto';
-import { ProductoService } from '../../../services/producto.service';
-import { VentaService } from '../../../services/venta.service';
-import { Venta } from '../../../model/venta';
+
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { debounceTime, filter, switchMap } from 'rxjs';
 import { DetalleCardComponent } from './detalle-card/detalle-card';
 import { PagoCardComponent } from './pago-card/pago-card';
+import { MaterialModule } from '../../../../material/material.module';
+import { ProductoService } from '../../../../services/producto.service';
+import { VentaService } from '../../../../services/venta.service';
+import { Producto } from '../../../../model/producto';
 
 export class CardItem {
   cantidad: number;

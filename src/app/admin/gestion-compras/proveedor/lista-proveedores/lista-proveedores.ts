@@ -1,10 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
-
-import { MaterialModule } from '../../../material/material.module';
 import { MatTableDataSource } from '@angular/material/table';
-import { Proveedor } from '../../../model/proveedor';
+import { MaterialModule } from '../../../../material/material.module';
+import { Proveedor } from '../../../../model/proveedor';
 
 
 @Component({
