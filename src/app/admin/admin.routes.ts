@@ -9,7 +9,6 @@ export const ADMIN_ROUTES: Routes = [
 
   //  Rutas de Gestión de Perfiles
 
-
   //  Rutas de Gestión de Productos y Vehículos
   {
     path: 'producto',
@@ -46,5 +45,8 @@ export const ADMIN_ROUTES: Routes = [
   {
     path: '**',
     redirectTo: '',
-  }
+  },
+
+
+
 ];
